@@ -86,3 +86,84 @@ function setTime() {
         }
     }, 1000);
 }
+
+//check the answer if wrong or right then jump to next
+function checkAnswer(event) {
+    event.preventDefault();
+
+    // show section for wrong/right
+    hrEl.style.display = "block";
+    let p = document.createElement("p");
+    hrEl.appendChild(p);
+
+    // time out after 1 second
+    setTimeout(function () {
+        p.style.display = 'none';
+    }, 1000);
+
+    // answer checker
+    if (questions[questionCount].correctAnswer === event.target.value) {
+        p.textContent = "Correct!";
+    } else if (questions[questionCount].correctAnswer !== event.target.value) {
+        secondsLeft = secondsLeft - 10;
+        p.textContent = "Wrong!";
+    }
+
+    // increment so the questions index is increased
+    if (questionCount < questions.length) {
+        questionCount++;
+    }
+    // call setQuestion to bring in next question when any ansBtn is clicked
+    scroll_quiz(questionCount);
+}
+
+function addScore(event) {
+    event.preventDefault();
+
+    finalEl.style.display = "none";
+    highscoresEl.style.display = "block";
+
+    let init = initialsInput.value.toUpperCase();
+    scoreList.push({ initials: init, score: secondsLeft });
+
+    // sort scores
+    scoreList = scoreList.sort((a, b) => {
+        if (a.score < b.score) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+    
+    scoreListEl.innerHTML="";
+    for (let i = 0; i < scoreList.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
+        scoreListEl.append(li);
+    }
+
+    // Add to local storage
+    storeScores();
+    displayScores();
+}
+
+function storeScores() {
+    localStorage.setItem("scoreList", JSON.stringify(scoreList));
+}
+
+function displayScores() {
+    // Get stored scores from localStorage
+    // Parsing the JSON string to an object
+    let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
+
+    // If scores were retrieved from localStorage, update the scorelist array to it
+    if (storedScoreList !== null) {
+        scoreList = storedScoreList;
+    }
+}
+
+// clear scores
+function clearScores() {
+    localStorage.clear();
+    scoreListEl.innerHTML="";
+}
