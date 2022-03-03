@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Code Quiz App</title>
+</head>
+
+<body>
+ 
+    <header>
+        <div class="row">
+            <div >
+                <button id="scores" type="button" style="margin-top: 80px;">View High Scores</button>
+            </div>
+            <div >
+                <p style="float: right;margin: auto;top: 0;" class="d-flex justify-content-end time">Time:75s</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="intro">
+                <div class="row">
+                    <div class="start_area">
+                        <h1 >Welcome to the Javascript Coding Quiz Challenge!</h1>
+                        <p >Try to answer the following javascript code questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+                        <button id="start" type="button" class="start_btn">Start Quiz</button></p>
+                    </div>
+                </div>
+            </section>
+            <section id="quizs">
+                <div class="row">
+                    <div>
+                        <h2 id="quiz">I'm a question</h2>
+                        <ul class="px-0 py-0 nobullets">
+                            <li class="mb-3"><button id="ans_1" value="0" type="button"
+                                    class="ansBtn">Answer1</button></li>
+                            <li class="mb-3"><button id="ans_2" value="1" type="button"
+                                    class="ansBtn">Answer2</button></li>
+                            <li class="mb-3"><button id="ans_3" value="2" type="button"
+                                    class="ansBtn">Answer3</button></li>
+                            <li class="mb-3"><button id="ans_4" value="3" type="button"
+                                    class="ansBtn">Answer4</button></li>
+                        </ul>
+                        <div id="hr" class="font-weight-light font-italic">
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="my_score">
+                <div class="row">
+                    <div>
+                        <h2>All done!</h2>
+                        <p>Your final score is: <span id="score" class="pl-1">0</span></p>
+                        <p>Enter initials: <span class="ml-1"><input placeholder="initials" id="initials" /></span>
+                            <button id="submit-score" class="btn_gen">Submit</button>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="highscores">
+                <div class="row">
+                    <div>
+
+                            <h2>High Scores</h2>
+                            <ol id="score-list">
+                            </ol>
+                            <button id="goback" class="btn_gen" >Go back</button>
+                            <button id="clearscores" class="btn_gen">Clear scores </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <script src="./assets/script.js"></script>
+   
+</body>
+
+</html>

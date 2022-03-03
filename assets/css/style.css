@@ -1,0 +1,96 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+* {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+html, body {
+    padding:20px;
+    height: 100%;
+}
+
+
+
+/* hide sections until they are shown via the click events */
+#quizs,
+#my_score,
+#highscores,
+#yaynay {
+    display: none;  
+  } 
+
+/* Remove bullet points from answers list */
+ul.nobullets {
+list-style-type: none;
+}
+
+/* Answer button styling */
+.ansBtn,
+.ansBtn:active,
+.ansBtn:focus,
+.ansBtn:active:focus {
+    box-shadow: none;
+    outline: none;
+    background-color: #351d74;
+    margin: 10px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  width: 200px;
+  text-align: left;
+  color: #fff;
+  border-radius: 12px;
+}
+.ansBtn:hover,.btn_gen:hover{
+background-color: #c978ec;
+}
+.btn_gen{
+    text-align: center;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: none;
+    outline: none;
+    background-color: #351d74;
+    padding: 10px;
+    outline: none;
+  border: none;
+}
+section{
+    margin:auto;
+    left: 0;
+    right: 0;
+    
+    width: 60%;
+}
+.start_area{
+    text-align:center
+}
+.start_btn{
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: none;
+    outline: none;
+    background-color: #351d74;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
+    body {
+        
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    body {
+	   
+   }
+}
