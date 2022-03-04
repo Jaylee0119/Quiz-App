@@ -66,12 +66,14 @@ section{
 .start_area{
     text-align:center
 }
-.start_btn{
-    color: #fff;
-    border-radius: 12px;
+.score_btn{
     box-shadow: none;
     outline: none;
-    background-color: #351d74;
+    background-color: #fff;
+    border: none;
+}
+.score_btn p:hover{
+    color: #c978ec;
 }
 
 /* Mobile */

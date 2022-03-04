@@ -87,7 +87,7 @@ function setTime() {
     }, 1000);
 }
 
-//check the answer if wrong or right then jump to next
+//if answer is right or wrong then go next
 function checkAnswer(event) {
     event.preventDefault();
 
@@ -96,12 +96,12 @@ function checkAnswer(event) {
     let p = document.createElement("p");
     hrEl.appendChild(p);
 
-    // time out after 1 second
+    // reduce time after every 1 s and disable it after its less than 1
     setTimeout(function () {
         p.style.display = 'none';
     }, 1000);
 
-    // answer checker
+    // check for answers if right or wrong logically
     if (questions[questionCount].correctAnswer === event.target.value) {
         p.textContent = "Correct!";
     } else if (questions[questionCount].correctAnswer !== event.target.value) {
@@ -109,11 +109,11 @@ function checkAnswer(event) {
         p.textContent = "Wrong!";
     }
 
-    // increment so the questions index is increased
+    // lenght of the questions added after each scroll to another quiz
     if (questionCount < questions.length) {
         questionCount++;
     }
-    // call setQuestion to bring in next question when any ansBtn is clicked
+    // eveent listener for the button when clicked on the answers available
     scroll_quiz(questionCount);
 }
 
@@ -142,7 +142,7 @@ function addScore(event) {
         scoreListEl.append(li);
     }
 
-    // Add to local storage
+    // local storage
     storeScores();
     displayScores();
 }
