@@ -26,7 +26,7 @@ startBtn.addEventListener("click", questions_start);
 //create variariable quizes in an array
 var questions = [ // array of objects
     {
-        question: "Which will return True if var y=3 and var x='2' ?",
+        question: "Which will return True for variables y=3 and var x='2'?",
         answers: ["1. x>y", "1. x<y", "3. x==y", "4. x===y"],
         correctAnswer: "2"
     },
@@ -167,3 +167,38 @@ function clearScores() {
     localStorage.clear();
     scoreListEl.innerHTML="";
 }
+
+function clearScores() {
+    localStorage.clear();
+    scoreListEl.innerHTML="";
+}
+
+// Check answers loop
+ansBtn.forEach(item => {
+    item.addEventListener('click', checkAnswer);
+});
+
+// Add score
+submitScrBtn.addEventListener("click", addScore);
+
+// Go Back Button
+goBackBtn.addEventListener("click", function () {
+    highscoresEl.style.display = "none";
+    introEl.style.display = "block";
+    secondsLeft = 75;
+    timeEl.textContent = `Time:${secondsLeft}s`;
+});
+
+// Clear the scores
+clearScrBtn.addEventListener("click", clearScores);
+
+// View/Hide High Scores Button
+viewScrBtn.addEventListener("click", function () {
+    if (highscoresEl.style.display === "none") {
+        highscoresEl.style.display = "block";
+    } else if (highscoresEl.style.display === "block") {
+        highscoresEl.style.display = "none";
+    } else {
+        return alert("No scores to show.");
+    }
+});
